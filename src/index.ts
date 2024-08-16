@@ -1,7 +1,8 @@
 import { Algs  } from './0-algs'
-import { Sorts } from './1-sorts';
+import { Sorts } from './1-sorts'
 import { Queue, Publisher, Subscriber } from './2-pubsub'
-import { Detector } from './3-detector';
+import { Detector } from './3-detector'
+import { Paradigms } from './5-paradigms'
 
 
 //==============================================================
@@ -119,30 +120,29 @@ function startPublisher() {
 
     setInterval(async () => {
 
-        await publisher.publish(`item ${counter++}`);
-    }, 1);
+        await publisher.publish(`item ${counter++}`)
+    }, 1)
 }
 
 function startConsumer() {
 
     setInterval(async () => {
 
-        await subscriber.consume();
-    }, 2);
+        await subscriber.consume()
+    }, 2)
 }
 
 function watchQueue() {
 
     setInterval(async () => {
 
-        console.log(`[${queue.size()}]${queue.watch().map(i => '-').join('')}|`);
-        //console.log(`[${queue.size()}]`);
-    }, 1000);
+        console.log(`[${queue.size()}]${queue.watch().map(i => '-').join('')}|`)
+    }, 1000)
 }
 
-startPublisher();
+startPublisher()
 watchQueue()
-startConsumer();
+startConsumer()
 
 
 //==============================================================
@@ -155,3 +155,11 @@ const threshold = 1;
 const anomalies = detector.detectAnomalies(data, threshold);
 
 console.log("Anomalies:", anomalies);
+
+
+//==============================================================
+// TESTES 5: PARADIGMS
+//==============================================================
+const paradigms: Paradigms = new Paradigms();
+
+paradigms.OOP();
